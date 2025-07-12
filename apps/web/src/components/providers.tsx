@@ -2,6 +2,7 @@
 
 import { ThemeProvider } from "./theme-provider";
 import { Toaster } from "./ui/sonner";
+import { AuthProvider } from "@/contexts/auth-context";
 
 
 export default function Providers({
@@ -16,8 +17,10 @@ export default function Providers({
       enableSystem
       disableTransitionOnChange
     >
-      {children}
-      <Toaster richColors />
+      <AuthProvider>
+        {children}
+        <Toaster richColors />
+      </AuthProvider>
     </ThemeProvider>
   );
 }
